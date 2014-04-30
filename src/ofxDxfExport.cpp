@@ -655,6 +655,68 @@ void ofxDxfExport::writeBlock()
     os << "ENDSEC" << endl;
     os << "  0" << endl;
 }
+//--------------------------------------------------------------
+void ofxDxfExport::writeDictionary()
+{
+    os << "SECTION" << endl;
+    os << "2" << endl;
+    os << "OBJECTS" << endl;
+    os << "0" << endl;
+    os << "DICTIONARY" << endl;
+    os << "5" << endl;
+    os << "C" << endl;
+    os << "330" << endl;
+    os << "0" << endl;
+    os << "100" << endl;
+    os << "AcDbDictionary" << endl;
+    os << "3" << endl;
+    os << "ACAD_GROUP" << endl;
+    os << "350" << endl;
+    os << "D" << endl;
+    os << "3" << endl;
+    os << "ACAD_MLINESTYLE" << endl;
+    os << "350" << endl;
+    os << "17" << endl;
+    os << "0" << endl;
+    os << "DICTIONARY" << endl;
+    os << "5" << endl;
+    os << "D" << endl;
+    os << "330" << endl;
+    os << "C" << endl;
+    os << "100" << endl;
+    os << "AcDbDictionary" << endl;
+    os << "0" << endl;
+    os << "DICTIONARY" << endl;
+    os << "5" << endl;
+    os << "1A" << endl;
+    os << "330" << endl;
+    os << "C" << endl;
+    os << "100" << endl;
+    os << "AcDbDictionary" << endl;
+    os << "0" << endl;
+    os << "DICTIONARY" << endl;
+    os << "5" << endl;
+    os << "17" << endl;
+    os << "330" << endl;
+    os << "C" << endl;
+    os << "100" << endl;
+    os << "AcDbDictionary" << endl;
+    os << "3" << endl;
+    os << "STANDARD" << endl;
+    os << "350" << endl;
+    os << "18" << endl;
+    os << "0" << endl;
+    os << "DICTIONARY" << endl;
+    os << "5" << endl;
+    os << "19" << endl;
+    os << "330" << endl;
+    os << "C" << endl;
+    os << "100" << endl;
+    os << "AcDbDictionary" << endl;
+    os << "0" << endl;
+    os << "ENDSEC" << endl;
+    os << "0" << endl;
+}
 
 //--------------------------------------------------------------
 void ofxDxfExport::writeEOF()

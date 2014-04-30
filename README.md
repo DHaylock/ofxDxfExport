@@ -29,7 +29,6 @@ ofxDxfExport is an addon for openFrameworks (v0.8.0+) that allows users to expor
 ## Updates and Contributing
 
 If you would like to contribute or redo the whole addon feel free to hack and mod the code as much as you want.
-
 Also drop me a line and Let me know how you end up using the addon.
 
-David Haylock
+@david_haylock
