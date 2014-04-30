@@ -27,7 +27,6 @@ class ofxDxfExport {
         void addPoints(vector <ofVec3f> pts);
         void writeDictionary();
         void writeEOF();
-        void writeCircles();
 };
 
 
