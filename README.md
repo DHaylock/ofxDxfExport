@@ -5,6 +5,11 @@ A .dxf export addon for openFrameworks.
 
 ofxDxfExport is an addon for openFrameworks (v0.8.0+) that allows users to export .dxf files inside their openFrameworks application. Provide a filename and a list of ofVec3f points to the ofxDxfExport object, the addon then pushes the data into the specified file. 
 
+If you would like to contribute or redo the whole addon feel free to hack and mod the code as much as you want.
+Also drop me a line and Let me know how you end up using the addon.
+
+@david_haylock
+
 ## Requirements
 - openFrameworks v0.8.0+
 
@@ -26,9 +31,3 @@ ofxDxfExport is an addon for openFrameworks (v0.8.0+) that allows users to expor
 
 - The examples will provide clearer instructions
 
-## Updates and Contributing
-
-If you would like to contribute or redo the whole addon feel free to hack and mod the code as much as you want.
-Also drop me a line and Let me know how you end up using the addon.
-
-@david_haylock
