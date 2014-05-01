@@ -27,9 +27,9 @@ Also drop me a line and Let me know how you end up using the addon.
 ```ofxDxfExport dxfExport;``` (choose your own name)
 
 - When you are ready to export the file simply call:
-```dxfExport.writeFile("<YourFileName>");```
-```dxfExport.addPoints(<YourPoints>,true);```
-```dxfExport.endFile();```
+- ```dxfExport.writeFile("<YourFileName>");```
+- ```dxfExport.addPoints(<YourPoints>,true);```
+- ```dxfExport.endFile();```
 
 - The examples will provide clearer instructions
 
