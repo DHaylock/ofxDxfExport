@@ -27,12 +27,13 @@ Also drop me a line and Let me know how you end up using the addon.
 ```ofxDxfExport dxfExport;``` (choose your own name)
 
 - When you are ready to export the file simply call:
+ 
+	<code>	 
+		dxfExport.writeFile("YourFileName");
+		dxfExport.addPoints("YourPoints",true);
+		dxfExport.endFile();
+	</code>
 
-	 
-	>	 dxfExport.writeFile("YourFileName");
-	>	 dxfExport.addPoints("YourPoints",true);
-	>	 dxfExport.endFile();
-	
 - The examples will provide clearer instructions.
 
 ## Updates
@@ -40,8 +41,10 @@ Also drop me a line and Let me know how you end up using the addon.
 - You are now able to export more than one set of points.
 - Simply call:
 	
-	>	dxfExport.addPoints("YourPoints1",false);
-	>	dxfExport.addPoints("YourPoints2",true);
+	<code>
+		dxfExport.addPoints("YourPoints1",false);
+		dxfExport.addPoints("YourPoints2",true);
+	</code>
 	
 - The bool value tells the addon to close the Entities section.
 
