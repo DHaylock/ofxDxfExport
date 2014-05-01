@@ -14,37 +14,59 @@ void testApp::update()
 void testApp::draw()
 {
     ofBackground(255);
-    ofSetColor(0);
-    if (clickPts.size() >0) {
+    
+    if (clickPtsLeft.size() >0) {
         ofNoFill();
         ofSetLineWidth(1);
+        ofSetColor(0);
         ofBeginShape();
-        for (int i = 0; i < clickPts.size(); i++) {
-            ofVertex(clickPts[i].x, clickPts[i].y,0);
-            ofCircle(clickPts[i].x, clickPts[i].y,5);
+        for (int i = 0; i < clickPtsLeft.size(); i++) {
+            ofVertex(clickPtsLeft[i].x, clickPtsLeft[i].y,0);
+            ofSetColor(255, 0, 0);
+            ofCircle(clickPtsLeft[i].x, clickPtsLeft[i].y,5);
+        }
+        ofEndShape(true);
+    }
+    
+    
+    if (clickPtsRight.size() >0) {
+        ofNoFill();
+        ofSetLineWidth(1);
+        ofSetColor(0);
+        ofBeginShape();
+        for (int i = 0; i < clickPtsRight.size(); i++) {
+            ofVertex(clickPtsRight[i].x, clickPtsRight[i].y,0);
+            ofSetColor(0,255,0);
+            ofCircle(clickPtsRight[i].x, clickPtsRight[i].y,5);
         }
         ofEndShape(true);
     }
     
     ofSetColor(0, 0, 0);
     ofFill();
-    ofRect(0, ofGetHeight()-20, ofGetWidth(), 20);
+    ofRect(0, ofGetHeight()-70, ofGetWidth(), 70);
     ofSetColor(255);
-    ofDrawBitmapString("Click in window to start making points. Number of Points " + ofToString(clickPts.size()) +  "  Click 'r' to reset points : Click 'w' to write points to File", 10, ofGetHeight()-5);
-
+    stringstream s;
+    s << "Click in window to start making points. Use Left and Right Clicks." << endl;
+    s << "Number of Points Left " + ofToString(clickPtsLeft.size()) + "   Number of Points Right " + ofToString(clickPtsRight.size()) << endl;
+    s << "Click 'r' to reset points" << endl;
+    s << "Click 'w' to write points to File" <<endl;
+    
+    ofDrawBitmapString(s.str(), 10,ofGetHeight()-50);
 }
 //--------------------------------------------------------------
 void testApp::keyPressed(int key)
 {
     switch (key) {
         case 'w':
-            dxf.writeFile(ofToString(ofGetTimestampString()), clickPts);
+            dxf.writeFile(ofToString(ofGetTimestampString()));
+            dxf.addPoints(clickPtsLeft, false);
+            dxf.addPoints(clickPtsRight, true);
+            dxf.endFile();
             break;
         case 'r':
-            clickPts.clear(); //clear all points
-            break;
-        case '<':
-            clickPts.erase(clickPts.end()-1); // delete last point
+            clickPtsLeft.clear();
+            clickPtsRight.clear();//clear all points
             break;
     }
 }
@@ -66,7 +88,18 @@ void testApp::mouseDragged(int x, int y, int button)
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button)
 {
-    clickPts.push_back(ofVec3f(x,y,0));
+    if (button == OF_MOUSE_BUTTON_LEFT)
+    {
+        clickPtsLeft.push_back(ofVec3f(x,y,0));
+    }
+    else if(button == OF_MOUSE_BUTTON_RIGHT) // Right Button
+    {
+        clickPtsRight.push_back(ofVec3f(x,y,0));
+    }
+    else
+    {
+        //Nothing
+    }
 }
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button)

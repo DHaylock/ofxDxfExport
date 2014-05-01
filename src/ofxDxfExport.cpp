@@ -13,27 +13,29 @@ ofxDxfExport::ofxDxfExport()
 {
     
 }
+
+
 //--------------------------------------------------------------
-void ofxDxfExport::writeFile(string path,vector<ofVec3f> pts)
+void ofxDxfExport::writeFile(string path)
 {
 
     os.open(path+".dxf",ofFile::WriteOnly);
     writeHOF();
     writeTable();
     writeBlock();
-    addPoints(pts);
-    writeDictionary();
-    writeEOF();
-    ofSystemAlertDialog("DXF " + path + " Created");
+    //addPoints(pts);
+    ofSystemAlertDialog("DXF " + path + " Created"); 
 }
 //----------------------------------------------------------------
-void ofxDxfExport::addPoints(vector<ofVec3f> pts)
+void ofxDxfExport::endFile()
 {
-    os << "SECTION" << endl;
-    os << "  2" << endl;
-    os << "ENTITIES" << endl;
-    os << "  0" << endl;
-
+    writeDictionary();
+    writeEOF();
+   
+}
+//----------------------------------------------------------------
+void ofxDxfExport::addPoints(vector<ofVec3f> pts, bool endSection)
+{
     if (pts.size() > 0) {
         os << "LWPOLYLINE" << endl;
         os << "5" << endl;
@@ -71,10 +73,14 @@ void ofxDxfExport::addPoints(vector<ofVec3f> pts)
         os << "0.0" << endl;
         os << "0" << endl;
     }
-    
-    os << "ENDSEC" << endl;
-    os << "0" << endl;
-    
+    if (endSection == true) {
+        os << "ENDSEC" << endl;
+        os << "0" << endl;
+    }
+    else
+    {
+        
+    }
 }
 //----------------------------------------------------------------
 void ofxDxfExport::writeHOF()
@@ -653,6 +659,12 @@ void ofxDxfExport::writeBlock()
     os << "AcDbBlockEnd" << endl;
     os << "  0" << endl;
     os << "ENDSEC" << endl;
+    os << "  0" << endl;
+    
+    //Start Next Section
+    os << "SECTION" << endl;
+    os << "  2" << endl;
+    os << "ENTITIES" << endl;
     os << "  0" << endl;
 }
 //--------------------------------------------------------------

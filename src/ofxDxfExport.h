@@ -17,14 +17,16 @@ class ofxDxfExport {
         ofxDxfExport();
     
         ofFile os;
-        void writeFile(string path,vector <ofVec3f> pts);
-
-    private:
+        //void writeFile(string path,vector <ofVec3f> pts);
+        void writeFile(string path);
+        void addPoints(vector <ofVec3f> pts,bool endSection);
+        void endFile();
     
+    private:
         void writeHOF();
         void writeTable();
         void writeBlock();
-        void addPoints(vector <ofVec3f> pts);
+        //void addPoints(vector <ofVec3f> pts);
         void writeDictionary();
         void writeEOF();
 };

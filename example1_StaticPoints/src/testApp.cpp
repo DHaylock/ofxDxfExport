@@ -26,7 +26,7 @@ void testApp::draw()
         ofBeginShape();
         for (int i = 0; i < pts.size(); i++) {
             ofVertex(pts[i].x, pts[i].y,0);
-            ofCircle(clickPts[i].x, clickPts[i].y,5);
+            ofCircle(pts[i].x, pts[i].y,5);
         }
         ofEndShape(true);
     }
@@ -42,7 +42,9 @@ void testApp::keyPressed(int key)
 {
     switch (key) {
         case 'w':
-            dxf.writeFile(ofToString(ofGetTimestampString()), pts);
+            dxf.writeFile(ofToString(ofGetTimestampString()));
+            dxf.addPoints(pts, true);
+            dxf.endFile();
         break;
     }
 }

@@ -21,5 +21,6 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         ofxDxfExport dxf;
-        vector <ofVec3f> clickPts;
+        vector <ofVec3f> clickPtsLeft;
+        vector <ofVec3f> clickPtsRight;
 };
