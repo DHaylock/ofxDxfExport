@@ -13,8 +13,6 @@ ofxDxfExport::ofxDxfExport()
 {
     
 }
-
-
 //--------------------------------------------------------------
 void ofxDxfExport::writeFile(string path)
 {
@@ -23,7 +21,6 @@ void ofxDxfExport::writeFile(string path)
     writeHOF();
     writeTable();
     writeBlock();
-    //addPoints(pts);
     ofSystemAlertDialog("DXF " + path + " Created"); 
 }
 //----------------------------------------------------------------
@@ -735,19 +732,3 @@ void ofxDxfExport::writeEOF()
 {
     os << "EOF" << endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
