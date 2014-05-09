@@ -49,8 +49,8 @@ void ofxDxfExport::addPoints(vector<ofVec3f> pts, bool endSection)
         os << pts.size() << endl; // Our point size
         os << "70" << endl;
         os << "0" << endl;
-        int pointCount = pts.size();
-        cout << pointCount << endl;
+        //int pointCount = pts.size();
+        //cout << pointCount << endl;
         for(int i =0; i < pts.size(); i++)
         {
             os << "10" << endl;
